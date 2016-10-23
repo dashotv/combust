@@ -17,6 +17,10 @@ var (
 	rabbitUrl      string
 	rabbitExchange string
 	rabbitType     string
+	GitCommit      string
+	GitBranch      string
+	GitState       string
+	BuildDate      string
 )
 
 func init() {
@@ -31,6 +35,8 @@ func main() {
 	var r *rabbit.Client
 	var f *flame.Client
 	var p chan []byte
+
+	log.Printf("build: %s:%s (%s), %s", GitCommit, GitBranch, GitState, BuildDate)
 
 	// Set up channel on which to send signal notifications.
 	// We must use a buffered channel or risk missing the signal

@@ -4,3 +4,5 @@ import:
 - package: github.com/dashotv/flame
 - package: github.com/dashotv/rabbit
 - package: github.com/joho/godotenv
+- package: github.com/ahmetalpbalkan/govvv
+  version: ^0.2.0

@@ -2,7 +2,7 @@
 all: build
 
 build:
-	go build -o "dtv-combust" main.go
+	govvv build -o "dtv-combust" main.go
 
 deps:
 	glide install

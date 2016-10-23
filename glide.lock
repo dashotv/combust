@@ -1,6 +1,8 @@
-hash: 16a956edd229ec9efb412dbf4158b262fccfebc03b9c917542f398ad6f2d7ffc
-updated: 2016-10-23T12:31:41.306499223-07:00
+hash: 776d3b6ac1e99abfc8d5c24ddd4b34ee2eaf72d6bc4b6cb4c074df76bccca629
+updated: 2016-10-23T12:40:22.518464551-07:00
 imports:
+- name: github.com/ahmetalpbalkan/govvv
+  version: 826804e6f0f120411bb76d5d77425868bccb118b
 - name: github.com/dashotv/flame
   version: 8e383b5b52dc6bbc8f3f7f34b7cde0cbf4cb5dbf
 - name: github.com/dashotv/rabbit
