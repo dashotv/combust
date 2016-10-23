@@ -1,16 +1,15 @@
 package main
 
 import (
-	"fmt"
-	"os"
-	"os/signal"
-	//"time"
 	"encoding/json"
+	"fmt"
 	"github.com/dashotv/flame"
 	"github.com/dashotv/rabbit"
 	_ "github.com/joho/godotenv/autoload"
 	"github.com/robfig/cron"
 	"log"
+	"os"
+	"os/signal"
 )
 
 var (
@@ -53,8 +52,6 @@ func main() {
 	cron.AddFunc("* * * * * *", func() {
 		var r *flame.Response
 		var d []byte
-
-		//fmt.Printf("timer: %s\n", time.Now())
 
 		if r, err = f.List(); err != nil {
 			log.Fatal("error: ", err)

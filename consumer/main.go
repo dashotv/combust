@@ -1,21 +1,21 @@
 package main
 
 import (
+	"encoding/json"
+	"fmt"
+	"github.com/dashotv/flame"
+	"github.com/dashotv/rabbit"
+	_ "github.com/joho/godotenv/autoload"
 	"os"
 	"os/signal"
-	"fmt"
-	"github.com/dashotv/rabbit"
-	"github.com/dashotv/flame"
-	"encoding/json"
-	_ "github.com/joho/godotenv/autoload"
 )
 
 var (
-	flameUrl string
-	rabbitUrl string
+	flameUrl       string
+	rabbitUrl      string
 	rabbitExchange string
-	rabbitType string
-	rabbitQueue string
+	rabbitType     string
+	rabbitQueue    string
 )
 
 func init() {
@@ -54,10 +54,13 @@ func main() {
 		case m := <-consuming:
 			//fmt.Println("Got message: ", string(m))
 			d := &flame.Response{}
+
 			if err = json.Unmarshal(m, d); err != nil {
 				fmt.Println("error unmarshaling: ", err)
 			}
+
 			//fmt.Println("decoded: ", d)
+
 			for _, t := range d.Torrents {
 				fmt.Printf("%3.0f %6.2f%% %10.2fmb %8.8s %s\n", t.Queue, t.Progress, t.SizeMb(), t.State, t.Name)
 			}
