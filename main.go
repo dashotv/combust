@@ -1,23 +1,23 @@
 package main
 
 import (
+	"fmt"
 	"os"
 	"os/signal"
-	"fmt"
 	//"time"
-	"log"
-	"github.com/robfig/cron"
+	"encoding/json"
 	"github.com/dashotv/flame"
 	"github.com/dashotv/rabbit"
-	"encoding/json"
 	_ "github.com/joho/godotenv/autoload"
+	"github.com/robfig/cron"
+	"log"
 )
 
 var (
-	flameUrl string
-	rabbitUrl string
+	flameUrl       string
+	rabbitUrl      string
 	rabbitExchange string
-	rabbitType string
+	rabbitType     string
 )
 
 func init() {
