@@ -1,5 +1,5 @@
-hash: 08e32083bb68b5ce99867c9859d1fe75db91c67325c3d688a93958191d7e11e9
-updated: 2016-10-23T11:56:09.731650897-07:00
+hash: 16a956edd229ec9efb412dbf4158b262fccfebc03b9c917542f398ad6f2d7ffc
+updated: 2016-10-23T12:31:41.306499223-07:00
 imports:
 - name: github.com/dashotv/flame
   version: 8e383b5b52dc6bbc8f3f7f34b7cde0cbf4cb5dbf

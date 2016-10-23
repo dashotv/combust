@@ -2,7 +2,7 @@
 all: build
 
 build:
-	go build -o "dtv-torrents" main.go client.go
+	go build -o "dtv-combust" main.go
 
 deps:
 	glide install

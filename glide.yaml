@@ -2,4 +2,5 @@ package: github.com/dashotv/combust
 import:
 - package: github.com/robfig/cron
 - package: github.com/dashotv/flame
+- package: github.com/dashotv/rabbit
 - package: github.com/joho/godotenv
