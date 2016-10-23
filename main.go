@@ -2,6 +2,7 @@ package main
 
 import (
 	"encoding/json"
+	"flag"
 	"fmt"
 	"github.com/dashotv/flame"
 	"github.com/dashotv/rabbit"
@@ -17,10 +18,13 @@ var (
 	rabbitUrl      string
 	rabbitExchange string
 	rabbitType     string
-	GitCommit      string
-	GitBranch      string
-	GitState       string
-	BuildDate      string
+
+	GitCommit string
+	GitBranch string
+	GitState  string
+	BuildDate string
+
+	version bool
 )
 
 func init() {
@@ -28,6 +32,9 @@ func init() {
 	rabbitUrl = os.Getenv("RABBIT_URL")
 	rabbitExchange = os.Getenv("RABBIT_EXCHANGE")
 	rabbitType = os.Getenv("RABBIT_TYPE")
+
+	flag.BoolVar(&version, "v", false, "just print version and exit")
+	flag.Parse()
 }
 
 func main() {
@@ -37,6 +44,9 @@ func main() {
 	var p chan []byte
 
 	log.Printf("build: %s:%s (%s), %s", GitCommit, GitBranch, GitState, BuildDate)
+	if version {
+		os.Exit(0)
+	}
 
 	// Set up channel on which to send signal notifications.
 	// We must use a buffered channel or risk missing the signal
