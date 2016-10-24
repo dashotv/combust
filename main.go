@@ -11,6 +11,7 @@ import (
 	"log"
 	"os"
 	"os/signal"
+	"time"
 )
 
 var (
@@ -25,6 +26,7 @@ var (
 	BuildDate string
 
 	version bool
+	debug   bool
 )
 
 func init() {
@@ -34,6 +36,7 @@ func init() {
 	rabbitType = os.Getenv("RABBIT_TYPE")
 
 	flag.BoolVar(&version, "v", false, "just print version and exit")
+	flag.BoolVar(&debug, "d", false, "print debug information")
 	flag.Parse()
 }
 
@@ -68,6 +71,7 @@ func main() {
 	cron.AddFunc("* * * * * *", func() {
 		var r *flame.Response
 		var d []byte
+		var s = time.Now().UnixNano()
 
 		if r, err = f.List(); err != nil {
 			log.Fatal("error: ", err)
@@ -79,8 +83,11 @@ func main() {
 
 		p <- d
 
-		for _, t := range r.Torrents {
-			fmt.Printf("%3.0f %6.2f%% %10.2fmb %8.8s %s\n", t.Queue, t.Progress, t.SizeMb(), t.State, t.Name)
+		if debug {
+			for _, t := range r.Torrents {
+				log.Printf("%3.0f %6.2f%% %10.2fmb %8.8s %s\n", t.Queue, t.Progress, t.SizeMb(), t.State, t.Name)
+			}
+			log.Printf("elapsed time: %.4f seconds\n", float64(time.Now().UnixNano()-s)/float64(1000000000))
 		}
 	})
 	cron.Start()

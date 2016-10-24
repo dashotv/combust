@@ -9,7 +9,7 @@ deps:
 	glide install
 
 run: build
-	./dtv-combust
+	./dtv-combust -d
 
 consumer: .PHONY
 	go run consumer/main.go
