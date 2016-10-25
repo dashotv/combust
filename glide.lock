@@ -1,12 +1,12 @@
-hash: 776d3b6ac1e99abfc8d5c24ddd4b34ee2eaf72d6bc4b6cb4c074df76bccca629
-updated: 2016-10-23T12:40:22.518464551-07:00
+hash: 4e5c5062eae3e5dd44bf9e21c49e90b40951a7a0e72529325cc71de29ce3173a
+updated: 2016-10-24T18:31:20.746228071-07:00
 imports:
 - name: github.com/ahmetalpbalkan/govvv
   version: 826804e6f0f120411bb76d5d77425868bccb118b
 - name: github.com/dashotv/flame
   version: 8e383b5b52dc6bbc8f3f7f34b7cde0cbf4cb5dbf
 - name: github.com/dashotv/rabbit
-  version: 6808d1b548600f0ca21e3f81a61741b0bf5c261b
+  version: a646e81ff6e7b45d18fc9309dbdde1e7aab3f027
 - name: github.com/grengojbo/goquery
   version: 581f5a57e7dbfd4af64c18c08f6323f80d971d24
   subpackages:

@@ -84,7 +84,8 @@ func main() {
 		p <- d
 
 		if debug {
-			for _, t := range r.Torrents {
+			for i := len(r.Torrents) - 1; i >= 0; i-- { //reverse: for _, t := range r.Torrents {
+				t := r.Torrents[i]
 				log.Printf("%3.0f %6.2f%% %10.2fmb %8.8s %s\n", t.Queue, t.Progress, t.SizeMb(), t.State, t.Name)
 			}
 			log.Printf("elapsed time: %.4f seconds\n", float64(time.Now().UnixNano()-s)/float64(1000000000))

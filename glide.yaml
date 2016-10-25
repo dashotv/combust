@@ -2,7 +2,9 @@ package: github.com/dashotv/combust
 import:
 - package: github.com/robfig/cron
 - package: github.com/dashotv/flame
+  version: master
 - package: github.com/dashotv/rabbit
+  version: master
 - package: github.com/joho/godotenv
 - package: github.com/ahmetalpbalkan/govvv
   version: ^0.2.0
